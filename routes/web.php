@@ -16,12 +16,12 @@ Route::get('/contact', function(){
 
 Route::get('/jobs', function(){
     return view('jobs', [
-        'jobs' => Job::all()
+        'jobs' => Job::all() //it's not calling the hardcode data anymore, but using Job::all() to get data from TablePlus. 
     ]);
 });
 
 Route::get('/job/{id}', function($id){
-    $job = Job::find($id);
+    $job = Job::find($id);  //it's not calling the hardcode data anymore, but using Job::find() to get data from TablePlus
     
     return view('job', ['job'=> $job]);
 });
