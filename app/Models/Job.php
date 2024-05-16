@@ -19,6 +19,14 @@ class Job extends Model
     // all attributes are allowed to be mass assign
     protected $fillable = ['title', 'salary'];
     // above scenario could happen when we insert new data to database using Tinker
+
+    // we need information about employer, so the method called employer
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
+
+    // $job->title
 };
 
 // WE CAN DO THIS with Tinker. Tinker is like CLI for playing
