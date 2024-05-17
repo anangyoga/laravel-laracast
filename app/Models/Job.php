@@ -25,8 +25,14 @@ class Job extends Model
     {
         return $this->belongsTo(Employer::class);
     }
-
     // $job->title
+
+    // function below allow us to access $job->tags
+    public function tags() 
+    {
+        // we need to add foreignPivotKey: "value" because the column name is job_listing_id instead of job_id
+        return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");
+    }
 };
 
 // WE CAN DO THIS with Tinker. Tinker is like CLI for playing
