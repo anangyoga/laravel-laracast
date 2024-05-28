@@ -14,4 +14,9 @@
            </a>
     @endforeach
     </div>
+
+    <div>
+        {{-- creating pagination buttons automatically --}}
+        {{ $jobs->links() }}
+    </div>
 </x-layout>
