@@ -22,7 +22,7 @@ Route::get('/jobs', function(){
     ]);
 });
 
-Route::get('/job/{id}', function($id){
+Route::get('/jobs/{id}', function($id){
     $job = Job::find($id);  //it's not calling the hardcode data anymore, but using Job::find() to get data from TablePlus
     
     return view('job', ['job'=> $job]);
