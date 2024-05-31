@@ -28,6 +28,15 @@
             </div>
           </div>
         </div>
+
+        {{-- no need if(status.message === 'error'), $errors variable will take care of it. just this code that says: if there's any validation error --}}
+        @if ($errors->any())
+            <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+        @endif
       </div>   
     </div>
   
