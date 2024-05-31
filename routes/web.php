@@ -15,7 +15,8 @@ Route::get('/contact', function(){
 });
 
 Route::get('/jobs', function(){
-    $jobs = Job::with('employer')->simplePaginate(5);
+    // latest will give descending order sort
+    $jobs = Job::with('employer')->latest()->simplePaginate(5);
 
     return view('jobs.index', [
         'jobs' => $jobs,
@@ -31,6 +32,21 @@ Route::get('/jobs/{id}', function($id){
     $job = Job::find($id);  //it's not calling the hardcode data anymore, but using Job::find() to get data from TablePlus
     
     return view('jobs.show', ['job'=> $job]);
+});
+
+Route::post('/jobs', function(){
+    // validation
+
+    // dd(request()->all());
+
+    Job::create([
+        'title' => request('title'),
+        'salary' => request('salary'),
+        // temporary hardcoded
+        'employer_id' => 1, 
+    ]);
+
+    return redirect('/jobs');
 });
 
 // we can return string like this

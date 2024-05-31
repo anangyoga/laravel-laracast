@@ -17,7 +17,7 @@ class Job extends Model
     protected $table = 'job_listings';
 
     // all attributes are allowed to be mass assign
-    protected $fillable = ['title', 'salary'];
+    protected $fillable = ['employer_id', 'title', 'salary'];
     // above scenario could happen when we insert new data to database using Tinker
 
     // we need information about employer, so the method called employer
