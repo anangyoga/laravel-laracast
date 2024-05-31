@@ -35,7 +35,12 @@ Route::get('/jobs/{id}', function($id){
 });
 
 Route::post('/jobs', function(){
-    // validation
+    // if this validation failed, Laravel will take care of it by sending it to previous Form and send error variables
+    request()->validate([
+        // fields from the Form on Front-end
+        'title'=> ['required', 'min:3'],
+        'salary' => ['required'],
+    ]);
 
     // dd(request()->all());
 
