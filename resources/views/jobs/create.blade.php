@@ -16,6 +16,11 @@
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                 <input type="text" name="title" id="title" autocomplete="title" class="block px-3 flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Cheerleader">
               </div>
+
+              {{-- 'title' bind to id="title" --}}
+              @error('title')
+                {{ $message }}
+              @enderror
             </div>
           </div>
   
@@ -25,18 +30,22 @@
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                 <input type="text" name="salary" id="salary" class="block px-3 flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="SGD50.000">
               </div>
+              {{-- 'salary' bind to id="salary" --}}
+              @error('salary')
+                {{ $message }}
+              @enderror
             </div>
           </div>
         </div>
 
         {{-- no need if(status.message === 'error'), $errors variable will take care of it. just this code that says: if there's any validation error --}}
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <ul>
               @foreach ($errors->all() as $error)
                   <li>{{ $error }}</li>
               @endforeach
             </ul>
-        @endif
+        @endif --}}
       </div>   
     </div>
   
